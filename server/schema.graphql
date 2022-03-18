@@ -1,0 +1,27 @@
+scalar GraphQLDate
+
+type Traveler {
+  _id: ID!
+  id: String!
+  name: String!
+  phone: String!
+  created: GraphQLDate!
+}
+
+input TravelerInputs {
+  name: String!
+  phone: String!
+}
+
+
+##### Top level declarations
+
+type Query {
+  travelerList: [Traveler!]!
+}
+
+type Mutation {
+  travelerAdd(traveler: TravelerInputs!): Traveler
+  travelerDelete(id: Int!): Traveler
+  createBlackList(name: String!): Boolean
+}
